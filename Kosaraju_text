@@ -1,0 +1,15 @@
+/*
+Đồ thị có hướng liên thông mạnh nếu giữa 2 đỉnh bất kỳ của đồ thị đều có đường đi đến nhau.
+Nếu đồ thị không liên thông mạnh, nó sẽ chia thành các thành phần liên thông mạnh
+Thành phần liên thông mạnh là những cụm lớn nhất, mà trong các cụm đó giữa 2 đỉnh đều có đường đi đến nhau
+
+Kosaraju chỉ cần gọi DFS, O(V + E) 
+-> Ông nhận thấy rằng khi mà lật ngược đồ thị (đảo chiều cạnh) thì số lượng thành phần liên thông mạnh không thay đổi 
+và khi mà duyệt DFS trên đồ thị lật ngược này thì có thể phân biệt đc các thành phần liên thông mạnh khác nhau
+
+B1: Tạo thứ tự sắp xếp topo
+B2: Đảo chiều đồ thị ví dụ, từ đỉnh 2 đến 3 đổi hướng lại thành từ 3 đến 2. Nếu 2 với 3 cùng 1 tplt mạnh sẽ có đường đi từ 2 đến 3
+và cũng sẽ có đường đi từ 3 đến 2, nhưng nếu k cùng thì từ lúc này đảo chiều chỉ đi đc từ đỉnh 3 đến 2, đỉnh 2 k thể sang 3
+B3: Lấy từng đỉnh trong ngăn xếp duyệt DFS, ví dụ đỉnh 1 -> đi tới đỉnh 5, các đỉnh từ 1 đến 5 đã thuộc cùng 1 thành phần liên thông
+khi đó sau khi DFS đỉnh 1, đến đỉnh 5 thì pop ra
+*/
