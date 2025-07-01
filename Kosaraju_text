@@ -3,7 +3,8 @@
 Nếu đồ thị không liên thông mạnh, nó sẽ chia thành các thành phần liên thông mạnh
 Thành phần liên thông mạnh là những cụm lớn nhất, mà trong các cụm đó giữa 2 đỉnh đều có đường đi đến nhau
 
-Kosaraju chỉ cần gọi DFS, O(V + E) 
+Kosaraju chỉ cần gọi DFS, O(V + E), thuật toán Kosaraju không phù hợp để kiểm tra các thành phần liên thông mạnh (SCC) trên đồ thị vô hướng. 
+Phát biểu:
 -> Ông nhận thấy rằng khi mà lật ngược đồ thị (đảo chiều cạnh) thì số lượng thành phần liên thông mạnh không thay đổi 
 và khi mà duyệt DFS trên đồ thị lật ngược này thì có thể phân biệt đc các thành phần liên thông mạnh khác nhau
 
