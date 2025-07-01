@@ -12,5 +12,5 @@ B1: Tạo thứ tự sắp xếp topo
 B2: Đảo chiều đồ thị ví dụ, từ đỉnh 2 đến 3 đổi hướng lại thành từ 3 đến 2. Nếu 2 với 3 cùng 1 tplt mạnh sẽ có đường đi từ 2 đến 3
 và cũng sẽ có đường đi từ 3 đến 2, nhưng nếu k cùng thì từ lúc này đảo chiều chỉ đi đc từ đỉnh 3 đến 2, đỉnh 2 k thể sang 3
 B3: Lấy từng đỉnh trong ngăn xếp duyệt DFS, ví dụ đỉnh 1 -> đi tới đỉnh 5, các đỉnh từ 1 đến 5 đã thuộc cùng 1 thành phần liên thông
-khi đó sau khi DFS đỉnh 1, đến đỉnh 5 thì pop ra
+khi đó sau khi DFS đỉnh 1, đến đỉnh 5 ta kiểm tra đỉnh 5 đã duyệt rồi thì pop ra
 */
