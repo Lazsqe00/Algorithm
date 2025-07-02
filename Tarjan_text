@@ -7,15 +7,15 @@ B1: Khởi tạo đánh số các đỉnh trên đồ thị, dùng một mảng 
 B2: Duyệt DFS, nếu đỉnh u quay lại đc tổ tiên của nó thì có nhiều trường hợp, nếu u quay lại được nhiều tổ tiên (có nhiều vòng cung)
 -> thì liên kết thấp nhất phải là tổ tiên xa nhất -> do đó cập nhật low[u] = min(low[u], sta[v]).
 
-Khi low u được cập nhật, u trở thành đỉnh v, các đỉnh có đường đi tới u cũng sẽ được cập nhật low
--> low[u] = min(low[u], low[v]), dùng min vì có trường hợp v (nó k gặp đc tổ tiên, thì low[v] nó vẫn là sta[v]) lúc này v lớn hơn u
-nên v không cập nhật
+Khi low u được cập nhật, u trở thành đỉnh v1, các đỉnh u có đường đi tới v1 trước đó cũng sẽ được cập nhật low
+-> low[u] = min(low[u], low[v1]), dùng min vì có trường hợp v1 (nó k gặp đc tổ tiên, thì low[v1] nó vẫn là sta[v1]) lúc này v1 lớn hơn u
+nên v1 không cập nhật
 
 
 Về đỉnh trụ: (công thức khác cạnh cầu)
 
 Ta có 3 đỉnh 1 - 2 - 3, đỉnh 2 là đỉnh trụ. Bởi vì 3 không có liên kết đến tổ tiên có 2, do đó bắt buộc phải đi qua đỉnh 2.
--> low[3] >= sta[2], dấu bằng xảy ra trong trường hợp 2 là gốc của chu trình (thêm đỉnh 4 nối với 2 và 3)
+-> suy ra low[3] >= sta[2], dấu bằng xảy ra trong trường hợp 2 là gốc của chu trình (ta thêm đỉnh 4 nối với 2 và 3 để tạo thành chu trình)
 
 Nếu u là đỉnh trụ khi và chỉ khi: low[v] >= sta[u], riêng gốc cây thì phải xét riêng, nếu gốc cây có 1 nhánh thì k phải đỉnh trụ
 gốc từ 2 nhánh trở lên ta xem gốc đó 100% là đỉnh trụ
@@ -26,7 +26,7 @@ ta phải dùng set để lưu các đỉnh không trùng lặp
 
 Về cạnh cầu: (công thức không lấy dấu = )
 
-Nếu v và v là cạnh cầu khi và chỉ khi: low[v] > sta[u], (nếu có dấu "=" thì trường hợp nó chu trình (u là gốc chu trình) khi đó
-nếu bỏ cạnh u v thì liên kết nó vẫn không thay đổi, bởi vì vẫn còn 1 cạnh u->v1 khác, do đó k lấy dấu =.
+Nếu u và v là cạnh cầu khi và chỉ khi: low[v] > sta[u] (không có liên kết từ v đến tổ tiên của u do đó bắt buộc phải đi qua đỉnh u, khi đó nếu bỏ cạnh uv sẽ tăng số tplt),
+(nếu có dấu "=" thì trường hợp nó chu trình (u là gốc chu trình) khi đó nếu bỏ cạnh u v thì liên kết nó vẫn không thay đổi, bởi vì vẫn còn 1 cạnh u->v1 khác, do đó k lấy dấu =.
 
 */
