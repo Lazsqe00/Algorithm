@@ -9,6 +9,10 @@ typedef pair<int,int> ii;
 #define pb push_back
 const int MOD = 1e9 + 7;
 const int MAX = 1e5 + 5;
+/*
+Cho đồ thị vô hướng liên thông G=<V, E> được biểu diễn dưới dạng danh sách cạnh. Hãy đưa ra tất cả các cạnh cầu của đồ thị? 
+Đưa ra danh sách các cạch cầu của mỗi test theo từng dòng. In ra đáp án theo thứ tự từ điển, theo dạng “a b …” với a < b.
+*/
 
 int T, N, M, sta[MAX], low[MAX], visited[MAX], cnt;
 vector<int> adj[MAX];
