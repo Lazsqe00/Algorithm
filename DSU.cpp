@@ -1,7 +1,7 @@
 int par[MAX], sz[MAX];
-int T, N, M, cnt;
 vector<int> adj[MAX];
 
+// Khi nhập cạnh x, y. Mình Union 2 đỉnh x, y lại
 
 int find(int v){
 	if(v == par[v]) return v;
