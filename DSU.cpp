@@ -10,6 +10,7 @@ int find(int v){
 // chú ý rất hay quên init_DSU
 void init_DSU(){
 	FOR(i, 1, N){
+		sz[i] = 1;
 		par[i] = i;
 	}
 }
