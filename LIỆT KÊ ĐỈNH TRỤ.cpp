@@ -27,7 +27,7 @@ void DFS(int u, int par){
 			if(par == 0) ++num_child;
 			DFS(v, u);
 			low[u] = min(low[u], low[v]); 
-			if(low[v] >= sta[u] && par != 0){ // v k co duong di toi to tien cua u
+			if(low[v] >= sta[u] && par != 0){ // v k co duong di toi to tien cua u, va dinh goc xet rieng
 				dt.insert(u); // dinh u dc nhet vao nhieu lan
 			}
 		}
