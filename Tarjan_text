@@ -1,0 +1,32 @@
+/*
+Thuật toán Tarjan
+
+B1: Khởi tạo đánh số các đỉnh trên đồ thị, dùng một mảng sta[MAX] để đánh số, và mảng low[MAX] (low link) hay liên kết thấp nhất
+để cập nhật đường nối giữa đỉnh u và tổ tiên v xa nhất của nó (sta[v] càng nhỏ thì liên kết càng thấp)
+
+B2: Duyệt DFS, nếu đỉnh u quay lại đc tổ tiên của nó thì có nhiều trường hợp, nếu u quay lại được nhiều tổ tiên (có nhiều vòng cung)
+-> thì liên kết thấp nhất phải là tổ tiên xa nhất -> do đó cập nhật low[u] = min(low[u], sta[v]).
+
+Khi low u được cập nhật, u trở thành đỉnh v, các đỉnh có đường đi tới u cũng sẽ được cập nhật low
+-> low[u] = min(low[u], low[v]), dùng min vì có trường hợp v (nó k gặp đc tổ tiên, thì low[v] nó vẫn là sta[v]) lúc này v lớn hơn u
+nên v không cập nhật
+
+
+Về đỉnh trụ: (công thức khác cạnh cầu)
+
+Ta có 3 đỉnh 1 - 2 - 3, đỉnh 2 là đỉnh trụ. Bởi vì 3 không có liên kết đến tổ tiên có 2, do đó bắt buộc phải đi qua đỉnh 2.
+-> low[3] >= sta[2], dấu bằng xảy ra trong trường hợp 2 là gốc của chu trình (thêm đỉnh 4 nối với 2 và 3)
+
+Nếu u là đỉnh trụ khi và chỉ khi: low[v] >= sta[u], riêng gốc cây thì phải xét riêng, nếu gốc cây có 1 nhánh thì k phải đỉnh trụ
+gốc từ 2 nhánh trở lên ta xem gốc đó 100% là đỉnh trụ
+
+Chú ý: Khi kiểm tra điều kiện low[v] >= sta[u], 1 đỉnh u có thể có nhiều đỉnh v do đó đỉnh u có thể bị nhét vào nhiều lần vì vậy 
+ta phải dùng set để lưu các đỉnh không trùng lặp
+
+
+Về cạnh cầu: (công thức không lấy dấu = )
+
+Nếu v và v là cạnh cầu khi và chỉ khi: low[v] > sta[u], (nếu có dấu "=" thì trường hợp nó chu trình (u là gốc chu trình) khi đó
+nếu bỏ cạnh u v thì liên kết nó vẫn không thay đổi, bởi vì vẫn còn 1 cạnh u->v1 khác, do đó k lấy dấu =.
+
+*/
