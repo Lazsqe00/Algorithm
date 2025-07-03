@@ -1,7 +1,7 @@
 Mã giả (pseudocode) thuật toán Hierholzer dùng stack
 
 // ham tim chu trinh euler / duong di euler
-Hàm Hierholzer(start):
+Hàm Hierholzer(start):                 // từ bất kỳ các đỉnh nào đó trên đồ thị đều có thể quay lại được đỉnh đó nếu tồn tại chu trình euler, do đó start này có thể chọn bất kỳ đỉnh nào cũng được
     Khởi tạo stack S
     Khởi tạo danh sách kết quả đường đi Euler: res
 
