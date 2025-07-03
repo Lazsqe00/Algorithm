@@ -1,4 +1,4 @@
-Thuật toán kiểm tra chu trình có thể dùng để xét độ dài của chu trình được. Nhưng nếu dùng để kiểm tra trọng số của chu trình sẽ bị sai, nếu code đúng sẽ bị TLE. 
+Thuật toán kiểm tra chu trình có thể dùng để kiểm tra coi có chu trình nào có độ dài chẵn hay lẻ không thì được. Nhưng nếu dùng để kiểm tra trọng số của chu trình sẽ bị sai, nếu code đúng 100% sẽ bị TLE. 
 
 void DFS(int u){
 	visited[u] = true;
