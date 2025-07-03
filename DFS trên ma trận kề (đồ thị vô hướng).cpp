@@ -16,10 +16,10 @@ int N, M;
 
 void dfs(int u) {
 	visited[u] = true;
-		FOR(v, 1, N){
-		if (a[u][v] == 1 && !visited[v]) {
+	FOR(v, 1, N){
+	   if (a[u][v] == 1 && !visited[v]) {
 			dfs(v);
-		}
+	     }
 	}
 }
 
