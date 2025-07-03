@@ -19,6 +19,7 @@ void DFS(int u){
 	visited[u] = false;
 }
 
-Nếu k thêm dòng visited[u] = false; thuật toán này sẽ kiểm tra thiếu chu trình nhỏ con bên trong nó.
+Nếu k thêm dòng visited[u] = false; thuật toán này sẽ kiểm tra thiếu chu trình nhỏ con bên trong nó nhưng nếu chỉ kiểm tra coi có chu trình lẻ hay không thì k cần có visited[u] = false; 
+vì nếu mình bỏ sót chu trình con bên trong nó, nhưng con nó lẻ, thì bố của nó (chứa chu trình con này) 100% lẻ (chỉ xét duy nhất 1 chu trình con lẻ thôi)
 
-NÓI CHUNG KHI LIÊN QUAN TỚI BÀI TOÁN CHU TRÌNH THÊM DÒNG 	visited[u] = false;
+NÓI CHUNG KHI LIÊN QUAN TỚI BÀI TOÁN CHU TRÌNH THÊM DÒNG visited[u] = false; sẽ làm code đúng nhưng thuật toán sẽ rất chậm và nguy cơ bị TLE lên tới 99%
