@@ -56,7 +56,6 @@ bool Union(int a, int b){
 
 
 void kruskal(){
-	vector<int> edges;
 	int d = 0;
 	sort(adj + 1, adj + M + 1, cmp);
 	int ans = 0;
