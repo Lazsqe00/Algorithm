@@ -1,0 +1,51 @@
+Mã giả (pseudocode) thuật toán Hierholzer dùng stack
+
+// ham tim chu trinh euler / duong di euler
+Hàm Hierholzer(start):
+    Khởi tạo stack S
+    Khởi tạo danh sách kết quả đường đi Euler: res
+
+    Đưa đỉnh start vào stack S
+
+    Trong khi S không rỗng:
+        u = đỉnh trên cùng của stack S
+
+        Nếu u còn cạnh chưa đi:
+            Lấy đỉnh kề v đầu tiên của u
+            Đưa v vào stack S
+
+            Xóa cạnh u - v khỏi đồ thị            // dùng set để xóa or dùng ma trận kể a[u][v] = a[v][u] = 0
+        Ngược lại:
+            Thêm u vào res (vì u không còn cạnh)
+            Pop u khỏi stack S
+
+    [Đảo ngược res (vì các đỉnh được thêm sau khi lùi lại), có thể không cần bước lật ngược này cũng được]
+
+    Trả về res là chu trình Euler
+
+// Tóm tắt
+
+Giai đoạn	                                                    Ý nghĩa
+Đi sâu	                                      Mỗi bước chọn 1 cạnh chưa đi, đi sâu tối đa.
+Hết đường              	                      Khi không còn cạnh → pop ra và đưa vào chu trình.
+Còn cạnh khác ở đỉnh đã qua	                  Quay lại để tạo chu trình con mới, rồi nối vào kết quả.
+Đảm bảo	                                      Mỗi cạnh đi đúng 1 lần, không bỏ sót chu trình nào.
+
+
+Giải thích
+/*
+Tư tưởng thuật toán:
+	+ Thuật toán chỉ bốc ra duy nhất 1 đỉnh kề với đỉnh u để duyệt cho đến khi nào quay lại được đỉnh u.
+	+ Trường hợp quay lại đỉnh u nhưng vẫn còn tồn tại cạnh trong đồ thị, thuật toán sẽ đi tìm đỉnh u tiếp theo mà danh sách cạnh
+	khác rỗng
+    + Cho đến khi nào đỉnh x này không thể đi đến được đỉnh nào khác thì nó là đáp án, các đỉnh kề với nó được tìm thấy nhờ cấu trúc stack
+
+Ý nghĩa thuật toán:
+	Mỗi cạnh khi được đi qua, sẽ bị xóa khỏi cả hai danh sách kề. Vì mỗi cạnh chỉ bị xóa duy nhất một lần, nên mỗi cạnh được đi đúng một lần.
+	Thuật toán tiếp tục đi sâu theo cạnh chưa dùng, cho đến khi không còn đường đi 
+	- Vì mỗi đỉnh có bậc chẵn, ta có quy luật:
+		+ Mỗi lần đi vào 1 đỉnh sẽ luôn tồn tại 1 cạnh để rời đi khỏi đỉnh đó, trừ đỉnh start
+		+ Khi đó duyệt 1 hồi nó sẽ quay lại đỉnh start. Nếu nó quay lại đỉnh bắt đầu, đồ thị vẫn còn những cạnh chưa duyệt
+		thì lấy những đỉnh trong stack ra và kiểm tra danh sách kề. Nếu danh sách kề rỗng => không còn cạnh thì thêm vào đáp án.
+*/
+
