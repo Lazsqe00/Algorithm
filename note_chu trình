@@ -1,0 +1,24 @@
+Thuật toán kiểm tra chu trình có thể dùng để xét độ dài của chu trình được. Nhưng nếu dùng để kiểm tra trọng số của chu trình sẽ bị sai, nếu code đúng sẽ bị TLE. 
+
+void DFS(int u){
+	visited[u] = true;
+	for(auto v : adj[u]){
+		if(!visited[v.fi]){
+			par[v.fi] = u;
+			high[v.fi] = high[u] + 1;
+			dist[v.fi] = dist[u] + v.se;
+			DFS(v.fi);
+		}
+		else if(v.fi != par[u]){
+			if(dist[u] - dist[v.fi] + v.se < d && high[u] - high[v.fi] + 1 >= 3){
+				d = dist[u] - dist[v.fi] + v.se;
+				max_len = high[u] - high[v.fi] + 1;
+			}
+		}
+	}
+	visited[u] = false;
+}
+
+Nếu k thêm dòng visited[u] = false; thuật toán này sẽ kiểm tra thiếu chu trình nhỏ con bên trong nó.
+
+NÓI CHUNG KHI LIÊN QUAN TỚI BÀI TOÁN CHU TRÌNH THÊM DÒNG 	visited[u] = false;
