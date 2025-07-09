@@ -27,6 +27,8 @@ Dựa vào chỉ số trong mảng a[] ta update dần các phần tử trong m�
 Tính tổng phần tử từ vị trí 1 -> 13  = 1101 = 2^3 + 2^2 + 2^0 -> BIT[2^3] + BIT[2^3 + 2^2] + BIT[2^3 + 2^2 + 2^0] = BIT[8] + BIT[12] + BIT[13]
 Tổng phần tử tử vị trí 13 chắc chắn có BIT[13] rồi -> để tìm vị trí tiếp theo thay vì như trên cộng BIT 1 bên phải
 thì ta trừ đi BIT 1 bên phải -> 13 = 1101 - 0001 = 1100 = 12 là BIT[12]
+
+Nếu update mỗi phần tử thì ta cũng phải tăng những chỉ số khác có đoạn chứa phần tử đó
 */
 
 ll N, Q, a[MAX], BIT[MAX];
