@@ -61,9 +61,6 @@ int main(){
 		else a[i].a = mp[a[i].a];
 	}
 	sort(a + 1, a + N + 1, cmp_id);
-	cout << "ai.a" << endl;
-	FOR(i, 1, N) cout << a[i].a << " ";
-	cout << endl;
 	ll ans = 0;
 	// F[i] = max(F[i], F[j] + w[i]);
 	FOR(i, 1, N){
