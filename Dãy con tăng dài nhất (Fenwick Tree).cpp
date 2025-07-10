@@ -12,7 +12,7 @@ const int MAX = 5e5 + 5;
 
 /*
 Truy vấn nhanh với độ phức tạp NlogN
-/*
+*/
 struct gift{
 	int a, w, id;
 };
