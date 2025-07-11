@@ -1,0 +1,68 @@
+/*
+Thuật toán chia căn
+Ta duy trì 1 mảng cnt[v] số lần giá trị v xuất hiện trong đoạn l -> r
+Ta tiếp tục duy trì 1 biến res để lưu lại số cặp phần tử thỏa đk bài toán. (a[i] == a[j])
+
+Khi chuyển từ đoạn l -> R sang đoạn L -> R + 1, ta thêm 1 giá trị v, ta có 2 bước:
+Đặt v = a[r + 1], ta thêm 1 giá trị v:
+res += cnt[v] (trong dãy đã có giá trị v, khi thêm vào giá trị v thì số cặp bằng nhau sẽ tăng thêm đúng 1 lượng như thế)
+cnt[v]++;
+
+Khi chuyển từ đoạn l -> R sang đoạn L -> R - 1, ta thêm 1 giá trị v, ta có 2 bước:
+Đặt v = a[r], ta thêm 1 giá trị v:
+cnt[v]--; (ví dụ khi thêm 1 giá trị v1, giá trị v1 đó sẽ ghép với giá trị v khác trong dãy. Khi đó để giảm bớt 1 giá trị v1
+thì cnt[v]-- (bớt giá trị v1 đó đi)
+res -= cnt[v] (res -= số giá trị v còn lại ghép với giá trị v1)
+
+Ta có thể thu hẹp hoặc mở rộng đoạn L -> R với thời gian O(1)
+cách chuyển L -> R sang đoạn L + 1 -> R -> xóa đi a[L]
+cách chuyển L -> R sang đoạn L - 1 -> R -> thêm a[L-1]
+
+Nhờ việc +-1 cận trái, phải -> với độ phức tạp O(1) thì việc chuyển từ đoạn (l1,r1) sang đoạn đoạn (l2,r2)
+với độ phức tạp O(|l1 - l2| + |r1 - r2|) vì việc dịch chuyển cận trái phải sang 1 với độ phức tạp là O(1).
+
+
+Bài toán yêu cầu trả lời q truy vấn,  (l1,r1) , (l2,r2), (l3,r3),... Thì độ phức tạp là O(|l1 - l2| + |r1 - r2| + |l2 - l3| + |r2 - r3| +...)
+Sắp xếp q truy vấn để giảm độ phức tạp theo 1 thứ tự nào đó
+
+Quan sát tiếp, ta thấy, một truy vấn có dạng (l, r). Ta cũng có thể coi (l, r) như tọa độ của một điểm trên mặt phẳng.
+
+
+Phát biểu bài toán: cho q điểm trên mặt phẳng tọa độ 2D với tọa độ lần lượt là (x1, y1), (x2, y2), ..., (xq, yq) sao cho các tọa độ có giá trị từ 1 đến n. 
+Dựng ra một cách sắp thứ tự q điểm này sao cho tổng khoảng cách Manhattan giữa 2 điểm liên tiếp là không quá (n + q) * sqrt(n).
+
+Cách sắp xếp:
+Chia trục tung làm sqrt(n) múi, mỗi múi có chiều cao là sqrt(n). Với hai điểm thuộc 2 múi khác nhau, điểm ở múi cao hơn được xếp sau, điểm ở múi thấp hơn thì xếp trước
+Với hai điểm cùng múi
+múi chẵn: các điểm sắp xếp từ trái qua phải (hoành độ tăng dần)
+múi lẻ: các điểm sắp xếp từ phải qua trái (hoành độ giảm dần)
+(múi chẵn hay lẻ k quan trọng)
+
+Khoảng cách manhattan = tổng chênh lệch hoành độ + tổng chênh lệch tung độ
+Trong 1 múi, Vì tọa độ các điểm thuộc [1, n]; nên chênh lệch hoành độ giữa hai điểm bất kỳ không quá n. Do đó, tổng chênh lệch hoành độ trong một múi là không quá n.
+Do có sqrt(n) múi nên tổng chênh lệch hoành độ của cả q điểm là không quá n * sqrt(n).
+Tổng chênh lệch tung độ:
+Do một múi có chiều cao là sqrt(n) nên chênh lệch tung độ giữa hai điểm cùng múi là không quá sqrt(n)
+Theo cách sắp xếp, ta đi hết các điểm ở múi dưới rồi mới tiến lên múi trên, nên sau đó sẽ không quay lại múi dưới nữa. Vì vậy, ta có thể hiểu tổng chênh lệch tung độ của điểm khác múi là không quá n.
+Với q điểm, tổng chênh lệch tung độ không quá q * sqrt(n).
+
+Kết luận: ta có cách sắp xếp q điểm này để tổng khoảng cách manhattan giữa hai điểm liên tiếp là không quá (n + q) * sqrt(n).
+
+CODE:
+int block = 0; // sqrt(n)
+while (block * block < n) block++;
+
+bool Compare(ii a, ii b) {
+int pa = a.second / block, pb = b.second / block; // vi tri cua 2 diem
+
+// nếu a và b thuộc 2 múi khác nhau, điểm nào ở múi dưới xếp trước
+if (pa != pb) return pa < pb; 
+
+// nếu a và b thuộc cùng múi, ta sắp xếp theo hoành độ tăng dần hoặc giảm dần (tùy theo tính chẵn lẻ)
+return pa % 2 == 0 ? a.fi < b.fi : a.fi > b.fi;
+}
+
+vector<pair<int, int>> points ...
+sort(points.begin(), points.end(), Compare);
+
+*/
