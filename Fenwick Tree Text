@@ -3,7 +3,7 @@ Cây Fenwick: Dùng khi mình muốn update 1 phần tử trên mảng đó thô
 + Thao tác update: Update từ i đến N (những gốc lớn hơn i) 
 Chú ý: thao tác update các đỉnh lớn hơn i những đỉnh này sẽ không liên quan gì tới những đỉnh trong thao tác get cả
 
-+ Hiểu đơn giản update tại a[j] này cộng thêm 1 lượng value, còn get là tìm coi có bao nhiêu phần tử nhỏ hơn a[j] (tính tổng các vị trí lại)
++ Hiểu đơn giản update tại node x này cộng thêm 1 lượng value (tùy vào thao tác của mình), còn get là tìm coi có bao nhiêu phần tử nhỏ hơn x và kiểm tra giá trị của các node đó là bao nhiêu?
 
 + Công thức: truy vấn từ u -> v = truy vấn từ 1 -> v trừ đi truy vấn từ 1 -> (u - 1)
 + Một lỗi sai hay mắc phải là phải luôn để số phần tử của cây BIT là đúng bằng N phần tử. Ví dụ mảng có 10^5 phần tử, ai <= 10^9 nhưng lại lưu vị trí trong cây BIT
