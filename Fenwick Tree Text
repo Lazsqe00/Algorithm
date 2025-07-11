@@ -1,4 +1,4 @@
-Cây Fenwick:
+Cây Fenwick: Dùng khi mình muốn update 1 phần tử trên mảng đó thôi, không nên update trên đoạn từ u -> v.
 + Thao tác get(i) : tìm giá trị (của cây con gốc i) trong đoạn từ 1 đến i
 + Thao tác update: Update từ i đến N (những gốc lớn hơn i) 
 Chú ý: thao tác update các đỉnh lớn hơn i những đỉnh này sẽ không liên quan gì tới những đỉnh trong thao tác get cả
