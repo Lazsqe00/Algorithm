@@ -1,0 +1,27 @@
+Thuật toán Dijkstra(s):
+    Khởi tạo khoảng cách d[i] = ∞ với mọi đỉnh i
+    d[s] = 0   // khoảng cách từ s đến chính nó là 0
+
+    Khởi tạo hàng đợi ưu tiên pq (min-heap) lưu các cặp (đỉnh, khoảng cách)
+    pq.push((s, 0))
+
+    Trong khi pq chưa rỗng:
+        (u, dis) = pq.top()  // lấy đỉnh có khoảng cách nhỏ nhất
+        pq.pop()
+
+        Nếu dis > d[u]:  // đã có đường đi ngắn hơn trước đó
+            Bỏ qua u (continue)
+
+        Duyệt tất cả các đỉnh kề v của u:
+            Giả sử cạnh (u, v) có trọng số uv
+
+            Nếu d[v] > d[u] + uv:
+                d[v] = d[u] + uv
+                pq.push((v, d[v]))
+
+Ý tưởng:
++ Xét tại 1 đỉnh u mình sẽ duyệt danh sách v kề của đỉnh đó, nếu khoảng cách đỉnh kề v (được lưu trong mảng d) nhỏ hơn khoảng cách của đỉnh u là d[u] + cạnh uv thì
+mình sẽ cập nhật đỉnh v và push đỉnh v vào xét lại đường đi.
++ Chú ý dòng code Nếu dis > d[u]:
+Một đỉnh u có thể duyệt lại nhiều lần vì có nhiều đường đi đến nó, khi duyệt lại tới đỉnh u mà dis_u > d[u] thì cái đường đi đó vô nghĩa vì nó vốn đã lớn hơn đường đi hiện tại và không cần phải duyệt tiếp,
+nếu không cẩn thận bước này code sẽ bị TLE.
