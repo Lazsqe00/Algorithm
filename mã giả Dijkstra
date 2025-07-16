@@ -20,8 +20,8 @@ Thuật toán Dijkstra(s):
                 pq.push((v, d[v]))
 
 Ý tưởng:
-+ Xét tại 1 đỉnh u mình sẽ duyệt danh sách v kề của đỉnh đó, nếu khoảng cách đỉnh kề v (được lưu trong mảng d) nhỏ hơn khoảng cách của đỉnh u là d[u] + cạnh uv thì
-mình sẽ cập nhật đỉnh v và push đỉnh v vào xét lại đường đi.
++ Xét tại 1 đỉnh u mình sẽ duyệt danh sách v kề của đỉnh đó, nếu khoảng cách đỉnh kề v (được lưu trong mảng d) nhỏ hơn khoảng cách của đỉnh u là d[u] + cạnh uv thì mình sẽ cập nhật đỉnh v và push đỉnh v 
+vào xét lại đường đi.
 + Chú ý dòng code Nếu dis > d[u]:
 Một đỉnh u có thể duyệt lại nhiều lần vì có nhiều đường đi đến nó, khi duyệt lại tới đỉnh u mà dis_u > d[u] thì cái đường đi đó vô nghĩa vì nó vốn đã lớn hơn đường đi hiện tại và không cần phải duyệt tiếp,
 nếu không cẩn thận bước này code sẽ bị TLE.
