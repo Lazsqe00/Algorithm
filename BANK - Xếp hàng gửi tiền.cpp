@@ -20,7 +20,7 @@ Ta có 2 lựa chọn tại mỗi thời gian mà khách hàng thứ i có thể
 + Nếu khi thêm khách hàng thứ i vào khoảng thời gian đó thì nó sẽ là bằng F[i - 1][k - 1] (i - 1 là dựa trên đáp án của dãy trước đó, k - 1 vì 
 thời gian phải lùi về 1 giờ) rồi + a[i].val. Và giá trị này > F[i - 1][k].
 
-Đáp án là max của tất cả các thời gian khi xét xong N người
+Đáp án là max của tất cả các thời gian khi xét xong N người F[N][time từ 1 -> maxTime] 
 */
 struct cust{
 	int t, val, id;
