@@ -24,4 +24,9 @@ Thuật toán Dijkstra(s):
 vào xét lại đường đi.
 + Chú ý dòng code Nếu dis > d[u]:
 Một đỉnh u có thể duyệt lại nhiều lần vì có nhiều đường đi đến nó, khi duyệt lại tới đỉnh u mà dis_u > d[u] thì cái đường đi đó vô nghĩa vì nó vốn đã lớn hơn đường đi hiện tại và không cần phải duyệt tiếp,
-nếu không cẩn thận bước này code sẽ bị TLE.
+nếu không cẩn thận bước này code sẽ bị TLE. 
+Giải thích rõ hơn: d[u] là đường đi từ đỉnh s cho tới đỉnh u và là đường đi nhỏ nhất tối ưu, trong khi đó dis là 1 trường
+hợp khác đến đỉnh u mới được thêm vào.Thì nếu mình có d[u] đã tối ưu rồi, thì cái trường hợp khác
+từ s đến u là dis vô nghĩa.
+Ví dụ : đường đi từ 5 đến 3 là 2, trong khi đó 6 đến 3 là 9. nếu ngay từ ban đầu mình cập
+nhật từ 5 đến 3 là 2, thì 2 là cái chuẩn mực phải nhỏ hơn 2 thì mình mới xét tiếp.
