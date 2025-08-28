@@ -22,6 +22,10 @@ Thuật toán Dijkstra(s):
 Ý tưởng:
 + Xét tại 1 đỉnh u mình sẽ duyệt danh sách v kề của đỉnh đó, nếu khoảng cách đỉnh kề v (được lưu trong mảng d) nhỏ hơn khoảng cách của đỉnh u là d[u] + cạnh uv thì mình sẽ cập nhật đỉnh v và push đỉnh v 
 vào xét lại đường đi.
++ Dùng pq để đảm bảo những đỉnh có trọng số nhỏ hơn xét trước và update cho mảng d là cái chuẩn mực để so sánh
+những đỉnh lớn hơn phía sau sẽ bỏ qua. Còn nếu ta khoonh dùng pq có thể là xét những đỉnh có trọng số lớn hơn trước
+tốn thêm thời gian và sau đó mới xét những đỉnh nhỏ và update, thế thì tại sao ta không update đỉnh nhỏ rồi nếu đỉnh lớn
+hơn vô nghĩa thì ta loại nó ra là được.
 + Chú ý dòng code Nếu dis > d[u]:
 Một đỉnh u có thể duyệt lại nhiều lần vì có nhiều đường đi đến nó, khi duyệt lại tới đỉnh u mà dis_u > d[u] thì cái đường đi đó vô nghĩa vì nó vốn đã lớn hơn đường đi hiện tại và không cần phải duyệt tiếp,
 nếu không cẩn thận bước này code sẽ bị TLE. 
