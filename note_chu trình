@@ -23,3 +23,8 @@ Nếu k thêm dòng visited[u] = false; thuật toán này sẽ kiểm tra thi�
 vì nếu mình bỏ sót chu trình con bên trong nó, nhưng con nó lẻ, thì bố của nó (chứa chu trình con này) 100% lẻ (chỉ xét duy nhất 1 chu trình con lẻ thôi)
 
 NÓI CHUNG KHI LIÊN QUAN TỚI BÀI TOÁN CHU TRÌNH THÊM DÒNG visited[u] = false; sẽ làm code đúng nhưng thuật toán sẽ rất chậm và nguy cơ bị TLE lên tới 99%
+Đoạn code trên mục đích tìm 1 chu trình có nhiều đỉnh nhất sao cho chi phí đến các đỉnh là ít nhất. Trường hợp nó tìm thấy 1 chu trình con
+bên trong, nhưng đáp án là chu trình bự bao bên ngoài. Tưởng tượng 1 hình bình hành và cắt 1 nữa tam giác là chu trình con
+Thì bài toán ở đây đó là do nó nối cạnh cuối cùng tam giác dẫn tới nó không thể quay lại cái đỉnh nối đó để tìm ra chu trình lớn bên ngoài
+do đó để nó quay lại ta phải cho visited = false => code chậm.
+
