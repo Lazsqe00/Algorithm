@@ -9,40 +9,39 @@ typedef pair<int,int> ii;
 #define pb push_back
 const int MOD = 1e9 + 7;
 const int MAX = 1e5 + 5;
-const ll oo = LONG_LONG_MAX;
-
-int N, M, s, t; // s la dinh bat dau, t la dinh ket thua
+const int oo = LONG_LONG_MAX;
 vector<ii> adj[MAX];
+int N, M, s, t;
 ll d[MAX];
 
-void dijkstra(int s){
-	priority_queue<ii, vector<ii>, greater<ii>> pq; // lay ra phan tu nho nhat
+void dijkstra(int s, int t){
 	FOR(i, 1, N) d[i] = oo;
 	d[s] = 0;
-	pq.push({s, 0});
+	priority_queue<ii, vector<ii>, greater<ii>> pq;
+	pq.push({0, s});
 	while(!pq.empty()){
-		int u = pq.top().first;
-		int dis = pq.top().second;
+		int du = pq.top().first;
+		int u = pq.top().second;
 		pq.pop();
-		if(dis > d[u]) continue;
+		if(du > d[u]) continue;
 		for(auto e : adj[u]){
-			int v = e.fi, uv = e.se;
-			if(d[v] > d[u] + uv){
-				d[v] = d[u] + uv;
-				pq.push({v, d[v]});
+			int dv = e.fi, v = e.se;
+			if(d[u] + dv < d[v]){
+				d[v] = d[u] + dv;
+				pq.push({d[v], v});
 			}
 		}
 	}
+	if(d[t] == oo) cout << -1 << endl;
+	else cout << d[t] << endl;
 }
-
 int main(){
 	ios_base::sync_with_stdio(0); cin.tie(nullptr);
 	cin >> N >> M >> s >> t;
 	FOR(i, 1, M){
-		int u, v, w; cin >> u >> v >> w;
-		adj[u].push_back({v, w});
-		adj[v].push_back({u, w});
+		int x, y, w; cin >> x >> y >> w;
+		adj[x].push_back({w, y});
+		adj[y].push_back({w, x});
 	}
-	dijkstra(s);
-	cout << d[t] << endl;
+	dijkstra(s, t);
 }
