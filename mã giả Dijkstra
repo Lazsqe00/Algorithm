@@ -3,7 +3,7 @@ Thuật toán Dijkstra(s):
     d[s] = 0   // khoảng cách từ s đến chính nó là 0
 
     Khởi tạo hàng đợi ưu tiên pq (min-heap) lưu các cặp (đỉnh, khoảng cách)
-    pq.push((s, 0))
+    pq.push((0, s))
 
     Trong khi pq chưa rỗng:
         (u, dis) = pq.top()  // lấy đỉnh có khoảng cách nhỏ nhất
