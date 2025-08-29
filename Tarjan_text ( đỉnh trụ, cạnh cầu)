@@ -11,6 +11,8 @@ Khi low u được cập nhật, u trở thành đỉnh v1, các đỉnh u có �
 -> low[u] = min(low[u], low[v1]), dùng min vì có trường hợp v1 (nó k gặp đc tổ tiên, thì low[v1] nó vẫn là sta[v1]) lúc này v1 lớn hơn u
 nên v1 không cập nhật
 
+VD: 1 -> 2 -> 3 -> 4 -> 2. khi tới 4 nó quay về 2 =>  low[u] = min(low[u], sta[v]). khi đó low[4] nó được cập nhật thì khi quay về 3 
+ta phải cập nhật dựa trên low[4] nên low[u] = min(low[u], low[v1]), trong đó v1 là đỉnh 4 và cũng là đỉnh u trước đó
 
 Về đỉnh trụ: (công thức khác cạnh cầu)
 
