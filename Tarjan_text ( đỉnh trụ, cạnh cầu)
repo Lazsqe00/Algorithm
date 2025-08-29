@@ -21,10 +21,10 @@ TH2: 1 -> 2 -> 3 -> 1 và 2 -> 4 -> 3 -> 1. (2 hình tam giác).
 3 -- 4
 DFS giả sử đi theo nhánh 1 → 2 → 4 → 3, thì tại 3 có 2 sự lựa chọn đến 2 hoặc 1, thì 4 nó sẽ cập nhật được dựa trên 2 tổ tiên 2 và 1.
 
+Bỏ cạnh 2 -> 3 trong 2 -> 3 -> 4 ta được 2 thành phần liên thông 2 và tplt 3 -> 4., bỏ đỉnh 3 ta được 2 tplt 2 và 4.
 Tư tưởng chung: low luôn bằng với sta nếu không có chu trình, nếu có chu trình chỉ có low thay đổi để lưu liên kết thấp nhất với tổ tiên
 nếu có nhiều chu trình thì low sẽ cập nhật chu trình có tổ tiên xa nhất. Mục đích nếu cạnh u,v là cạnh cầu khi v không móc được tới tổ tiên của 
-u hoặc là v không móc được tới u => low[v] > sta[u]. VD 2 -> 3 -> 1 -> 2, 3 móc được tới 2 nên cạnh 23 này không phải cạnh cầu, thêm nữa 2 không
-được là gốc của cây
+u hoặc là v không móc được tới u => low[v] > sta[u]. VD 2 -> 3 -> 1 -> 2, 3 móc được tới 2 nên cạnh 23 này không phải cạnh cầu.
 Tương tự về đỉnh trụ nhưng với chu trình trên dấu "=" xảy trong trường hợp u không phải là gốc của cây, và chú ý gốc của cây phải từ 2 nhánh
 trở lên mới tính là đỉnh trụ. VD 1 -> 2 -> 3 -> 1. Sau khi chạy tới cặp cuối cùng u = 3. v = 1 => update low[2,3] = 1. Khi quay lui về
 1 thì cặp u và v đầu tiên là u = 1 và v = 2 mặc dù low[2] = sta[1] nhưng par(1) = 0 nên ta không xét.
