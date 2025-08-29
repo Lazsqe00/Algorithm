@@ -15,7 +15,7 @@ vector<int> adj[MAX];
 int res[MAX];
 // chon dinh u lam goc
 /*
-Minh họa thuật toán Tarjan nếu bỏ từng đỉnh của đồ thị và liệt kê số lượng tplt nếu bỏ đi đỉnh đó.\
+Minh họa thuật toán Tarjan bỏ từng đỉnh của đồ thị và liệt kê số lượng tplt nếu bỏ đi đỉnh đó.
 Nếu u là đỉnh trụ, ta chỉ cần tìm tất cả các nhánh v thỏa mãn u là đỉnh trụ thì nhánh v đó là 1 tplt riêng biệt + 1 nhánh tổ tiên của u phía trước.
 Nếu các đỉnh nằm chung 1 chu trình thì visited của các đỉnh đó đều là true, khi đó đỉnh gốc sẽ không ghé lại 1 trong các đỉnh đó, số lượng biến child sẽ là số
 nhánh của đỉnh đó. Nếu đỉnh gốc > 2 nhánh thì 100% đỉnh gốc là đỉnh trụ và số nhánh chính là số tplt.
