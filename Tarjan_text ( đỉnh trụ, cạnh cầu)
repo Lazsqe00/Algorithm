@@ -11,8 +11,15 @@ Khi low u được cập nhật, u trở thành đỉnh v1, các đỉnh u có �
 -> low[u] = min(low[u], low[v1]), dùng min vì có trường hợp v1 (nó k gặp đc tổ tiên, thì low[v1] nó vẫn là sta[v1]) lúc này v1 lớn hơn u
 nên v1 không cập nhật
 
-VD: 1 -> 2 -> 3 -> 4 -> 2. khi tới 4 nó quay về 2 =>  low[u] = min(low[u], sta[v]). khi đó low[4] nó được cập nhật thì khi quay về 3 
-ta phải cập nhật dựa trên low[4] nên low[u] = min(low[u], low[v1]), trong đó v1 là đỉnh 4 và cũng là đỉnh u trước đó
+VD: 1 -> 2 -> 3 -> 4 -> 2. khi tới 4 nó quay về 2 ta cập nhật liên kết thấp nhất là tổ tiên của nó (chú ý nó có thể có nhiều tổ tiên)
+=> low[u] = min(low[u], sta[v]). khi đó low[4] nó được cập nhật thì khi quay về 3 ta phải cập nhật dựa trên low[4] nên low[u] = min(low[u], low[v1]),
+trong đó v1 là đỉnh 4 và cũng là đỉnh u trước đó.
+
+TH2: 1 -> 2 -> 3 -> 1 và 2 -> 4 -> 3 -> 1. (2 hình tam giác). 
+1 -- 2
+|  / |
+3 -- 4
+DFS giả sử đi theo nhánh 1 → 2 → 4 → 3, thì tại 3 có 2 sự lựa chọn đến 2 hoặc 1, thì 4 nó sẽ cập nhật được dựa trên 2 tổ tiên 2 và 1.
 
 Về đỉnh trụ: (công thức khác cạnh cầu)
 
