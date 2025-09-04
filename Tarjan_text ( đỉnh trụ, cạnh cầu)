@@ -1,5 +1,5 @@
 /*
-Thuật toán Tarjan
+Thuật toán Tarjan (CHÚ Ý QUAN TRỌNG: BỎ CẠNH UV CHỨ KHÔNG PHẢI BỎ ĐỈNH UV.)
 
 B1: Khởi tạo đánh số các đỉnh trên đồ thị, dùng một mảng sta[MAX] để đánh số, và mảng low[MAX] (low link) hay liên kết thấp nhất
 để cập nhật đường nối giữa đỉnh u và tổ tiên v xa nhất của nó (sta[v] càng nhỏ thì liên kết càng thấp)
