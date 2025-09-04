@@ -12,6 +12,11 @@ const int MAX = 1e5 + 5;
 
 int N, BIT[MAX], F[MAX];
 ii a[MAX];
+/*
+5
+2 1 4 3 5
+out: 3
+*/
 void update(int x, int val){
 	while(x <= N){
 		BIT[x] = max(BIT[x], val);
