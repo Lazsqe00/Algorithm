@@ -1,8 +1,0 @@
-Dạng toán liên quan đến Dijkstra
-1. Tìm đường đi ngắn nhất từ 1 đến N, hỏi có bao nhiêu đường đi?
-Gọi cnt[i] là số đường đi ngắn nhất đến đỉnh i. Khởi tạo cnt[1] = 1. Đáp án bài toán là cnt[N]
-Nếu du + dv < F[u] -> cnt[v] = cnt[u], else if(du + dv == F[u]) cnt[v] += cnt[u]
-
-2. Hãy loại bỏ đỉnh u sao cho đường đi ngắn nhất từ 1 đến N vẫn không đổi.
-Gọi F1, FN, F lần lượt là đường đi ngắn nhất từ 1 đến u, từ N đến u và từ 1 đến N
-=> F1[u] + FN[u] = F[N]
