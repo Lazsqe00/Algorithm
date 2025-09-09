@@ -9,7 +9,7 @@ struct edge{
 int n, m, s;
 vector<edge> adj;
 int d[1000];
-
+// dùng bellmanford để phát hiện chu trình âm (cạnh < 0)
 void nhap(){
     cin >> n >> m >> s;
     adj.clear();
