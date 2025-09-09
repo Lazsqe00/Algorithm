@@ -20,3 +20,10 @@ else if(F1[i] + FN[i] == F1[N]){
 				rs.push_back(i);
 		}
 }
+
+3. Đề cho 1 sơ đồ đường đi 1 chiều liên thông chứa 2 đỉnh s và t, và cho một danh sách đề xuất đường đi 2 chiều. Và mình bắt buộc phải chọn 
+1 trong danh sách để đoạn từ s đến t là nhỏ nhất
+Gọi F1[], FN[] lần lượt là khoảng cách từ 1 đến mọi đỉnh và khoảng cách từ N đến mọi đỉnh. Nhận thấy vì đường đi 1 chiều nên nếu u -> N thì
+đảo chiều adj_rev N -> u.
+Với 1 đỉnh x và y trong danh sách ta sẽ cập nhật res = min({res, F1[x] + FN[y] + w, F1[y] + FN[x] + w}) vì x và y là đường đi 2 chiều nên
+sẽ có 2 trường hợp xảy ra nếu ta thêm tuyến đường x và y 2 chiều vào.
