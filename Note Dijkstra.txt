@@ -27,3 +27,5 @@ Gọi F1[], FN[] lần lượt là khoảng cách từ 1 đến mọi đỉnh v�
 đảo chiều adj_rev N -> u.
 Với 1 đỉnh x và y trong danh sách ta sẽ cập nhật res = min({res, F1[x] + FN[y] + w, F1[y] + FN[x] + w}) vì x và y là đường đi 2 chiều nên
 sẽ có 2 trường hợp xảy ra nếu ta thêm tuyến đường x và y 2 chiều vào.
+
+4. Khi chạy Dijkstra từ s trên adj_rev: ta nhận được d[s][*], mà thực chất chính là khoảng cách từ * → s trong đồ thị gốc.
