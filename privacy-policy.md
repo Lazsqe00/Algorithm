@@ -9,4 +9,4 @@ The extension does not sell, rent, or share user data with third parties.
 Network requests are only used to access course registration information required for the extension's functionality.
 
 Contact:
-[your-email@gmail.com](mailto:your-email@gmail.com)
+[kidieu000@gmail.com](mailto:kidieu000@gmail.com)
